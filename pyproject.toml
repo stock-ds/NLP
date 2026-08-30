@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stock-ds"
+version = "0.1.0"
+description = "Appendable data-science helper toolkit (NLP first): unique-vocabulary spell correction and regex helpers."
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+    { name = "stock-ds" },
+]
+keywords = ["nlp", "spellcheck", "sklearn", "toolkit"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Text Processing",
+]
+dependencies = [
+    "scikit-learn",
+    "pyspellchecker",
+    "pandas",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+stock-ds-spellcorrect = "stock_ds.spellcorrect.correct:main"
+
+[project.urls]
+Homepage = "https://github.com/stock-ds/NLP"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+stock_ds = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
